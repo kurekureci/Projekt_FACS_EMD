@@ -7,11 +7,11 @@ d = length(x);
 
 N = 400;
 fvz = 360;  % z databaze MIT-BIH Arrhythmia
-Wnv = ([0.7/(fvz/2),100/(fvz/2)]); % filtrace driftu
+Wnv = ([0.7/(fvz/2),100/(fvz/2)]); % mezni frekcence pro filtraci driftu
 bv = fir1(N,Wnv,'bandpass'); % výpoèet imp. char. filtru
 yv = filtfilt(bv,1,x); % vysledek filtrace
 x = yv;
-Wnv2 = ([55/(fvz/2),65/(fvz/2)]); % pro filtraci brumu 60 Hz
+Wnv2 = ([55/(fvz/2),65/(fvz/2)]); % mezni frekcence pro filtraci brumu 60 Hz
 bv2 = fir1(N,Wnv2,'stop'); % výpoèet imp. char. filtru
 yv2 = filtfilt(bv2,1,x); % vysledek filtrace
 x = yv2;
